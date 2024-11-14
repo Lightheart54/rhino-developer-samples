@@ -69,6 +69,7 @@
     <Compile Include="SampleCsApplyCrv.cs" />
     <Compile Include="SampleCsArc.cs" />
     <Compile Include="SampleCsBooleanDifference4.cs" />
+    <Compile Include="SampleCsCachedTextureCoordinates.cs" />
     <Compile Include="SampleCsCreateBooleanRegions.cs" />
     <Compile Include="SampleCsCreateUVCurve.cs" />
     <Compile Include="SampleCsAddAlignedDimension.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="SampleCsClipboard.cs" />
     <Compile Include="SampleCsContour.cs" />
     <Compile Include="SampleCsCreateNestedBlock.cs" />
+    <Compile Include="SampleCsCurveDeviation.cs" />
     <Compile Include="SampleCsDetailDisplayMode.cs" />
     <Compile Include="SampleCsDetailLock.cs" />
     <Compile Include="SampleCsDrawArrow.cs" />
@@ -126,6 +128,7 @@
     <Compile Include="SampleCsMeshBox.cs" />
     <Compile Include="SampleCsMirror.cs" />
     <Compile Include="SampleCsMove.cs" />
+    <Compile Include="SampleCsMoveFace.cs" />
     <Compile Include="SampleCsMoveGrips.cs" />
     <Compile Include="SampleCsMoveNormal.cs" />
     <Compile Include="SampleCsNurbsCircle.cs" />

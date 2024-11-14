@@ -6,19 +6,14 @@ using Rhino.Input.Custom;
 
 namespace SampleCsUserData.Commands
 {
-  [System.Runtime.InteropServices.Guid("59f0cc43-3019-41ae-b65b-87e1fbadfba3")]
   public class SampleCsModifyUserData : Command
   {
-    public override string EnglishName
-    {
-      get { return "SampleCsModifyUserData"; }
-    }
+    public override string EnglishName => "SampleCsModifyUserData";
 
     protected override Result RunCommand(RhinoDoc doc, RunMode mode)
     {
       const ObjectType filter = ObjectType.AnyObject;
-      ObjRef objref;
-      var rc = RhinoGet.GetOneObject("Select object", false, filter, out objref);
+      var rc = RhinoGet.GetOneObject("Select object", false, filter, out ObjRef objref);
       if (rc != Result.Success || null == objref)
         return rc;
 
@@ -27,8 +22,8 @@ namespace SampleCsUserData.Commands
         return Result.Failure;
 
       var attributes = obj.Attributes.Duplicate();
-      var ud = attributes.UserData.Find(typeof(SampleCsUserDataObject)) as SampleCsUserDataObject;
-      if (null != ud)
+
+      if (attributes.UserData.Find(typeof(SampleCsUserDataObject)) is SampleCsUserDataObject ud)
       {
         var gs = new GetString();
         gs.SetCommandPrompt("Modify object notes");

@@ -13,8 +13,7 @@ namespace SampleCsUserData.Commands
     protected override Result RunCommand(RhinoDoc doc, RunMode mode)
     {
       const ObjectType filter = ObjectType.AnyObject;
-      ObjRef objref;
-      var rc = RhinoGet.GetOneObject("Select object", false, filter, out objref);
+      var rc = RhinoGet.GetOneObject("Select object", false, filter, out ObjRef objref);
       if (rc != Result.Success || null == objref)
         return rc;
 
@@ -22,8 +21,7 @@ namespace SampleCsUserData.Commands
       if (null == obj)
         return Result.Failure;
 
-      var ud = obj.Attributes.UserData.Find(typeof(SampleCsUserDataObject)) as SampleCsUserDataObject;
-      if (null == ud)
+      if (!(obj.Attributes.UserData.Find(typeof(SampleCsUserDataObject)) is SampleCsUserDataObject ud))
       {
         var gs = new GetString();
         gs.SetCommandPrompt("Object notes");
@@ -31,7 +29,7 @@ namespace SampleCsUserData.Commands
         if (gs.CommandResult() != Result.Success)
           return gs.CommandResult();
 
-        ud = new SampleCsUserDataObject 
+        ud = new SampleCsUserDataObject
         {
           Notes = gs.StringResult()
         };
